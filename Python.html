@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Amanda Hamell Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Amanda Hamell Portfolio</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="Excel.html">Excel Projects</a></li>
+								<li><a href="PowerBI.html">Power BI Projects</a></li>
+								<li><a href="Python.html">Python Projects</a></li>
+								<li><a href="https://public.tableau.com/app/profile/amanda3119">Tableau Projects</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Python</h2>
+								<p>Writing scripts using Python.</p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+									<h3 class="major">Pizza Calculator</h3>
+									<p>This script will calculate the price per inch on 2 different pizzas and outputs which is a the best deal.</p>
+								</div>
+							</div>
+						<pre><code>
+#input information
+	name = input("Enter you name: ")
+	a_size = int(input("Enter the first pizza's size in inches: "))
+	a_price = int(input("Enter the first pizza's price: "))
+	b_size = int(input("Enter the second pizza's size in inches: "))
+	b_price = int(input("Enter the second pizza's price: "))
+							
+#calculations for pizza size and price
+	import math
+	a_radius = (a_size / 2)
+	a_area = (math.pi * a_radius * a_radius)
+	a_price_inch = round(a_price / a_area, 2)
+							
+	print("Price per inch on first pizza = ${:.2f}".format(a_price_inch))
+							
+	b_radius = (b_size / 2)
+	b_area = (math.pi * b_radius * b_radius)
+	b_price_inch = round(b_price / b_area, 2)
+							
+	print("Price per inch on second pizza = ${:.2f}".format(b_price_inch))
+							
+#output
+	if a_price_inch > 0 and b_price_inch > 0:
+		if a_price_inch < b_price_inch:
+			print(name +", your first pizza is a better deal.")
+		elif (a_price_inch > b_price_inch):
+			print(name +", your second pizza is a better deal.")
+		elif (a_price_inch == b_price_inch):
+			print(name +", your pizzas are both the same price")
+		else:
+			print(name +", it isn't working")
+	else:
+		print("Enter valid input")
+	</code></pre>
+					</section>
+
+						<!-- Content -->
+						<div class="wrapper">
+							<div class="inner">
+								<h3 class="major">Automatic File Sorter</h3>
+								<p>This script will create folders in a specific folder and move the files into the created folders.</p>
+							</div>
+						</div>
+					<pre><code>
+#find the file
+	import os, shutil
+	path = r"C:/Users/Administrator/Desktop/Python Project/"
+	file_name = os.listdir(path)
+						
+#create the folders
+	folder_names = ["csv files", "image files", "text files"]
+						
+	for loop in range(0,3):
+		if not os.path.exists(path + folder_names[loop]):
+			print(path + folder_names[loop])
+			os.makedirs(path + folder_names[loop])
+
+#move the files
+	for file in file_name:
+		if ".csv" in file and not os.path.exists(path + "csv files/" + file):
+			shutil.move(path + file, path + "csv files/" + file)
+		elif ".jpg" in file and not os.path.exists(path + "image files/" + file):
+			shutil.move(path + file, path + "image files/" + file)
+		elif ".png" in file and not os.path.exists(path + "image files/" + file):
+			shutil.move(path + file, path + "image files/" + file)
+		elif ".txt" in file and not os.path.exists(path + "text files/" + file):
+			shutil.move(path + file, path + "text files/" + file)
+		else:
+			print("There are files in this path that are not moved.")
+		</code></pre></code></pre>
+				</section>
+
+				<!-- Footer -->
+				<section id="footer">
+					<div class="inner">
+						<h2 class="major">Get in touch</h2>
+						<p>Please contact me for further information.</p>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" />
+								</div>
+								<div class="field">
+									<label for="email">Email</label>
+									<input type="email" name="email" id="email" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="4"></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" /></li>
+							</ul>
+						</form>
+						<ul class="contact">
+							<li class="icon solid fa-home">
+								Amanda Hamell<br />
+								PO Box 1132<br />
+								Haines, AK 99827
+							</li>
+							<li class="icon solid fa-phone">(208) 907-6677</li>
+							<li class="icon solid fa-envelope"><a href="#">amanda.hamell@gmail.com</a></li>
+							<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/amanda-hamell-3283b4b">LinkedIn</a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
